@@ -54,7 +54,7 @@ def main(page):
       sys.stdout.flush()
     else:
       break
-  if  time > 0:
+  if  times > 0:
     page += 1
     main(page)
 
