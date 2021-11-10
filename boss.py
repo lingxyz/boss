@@ -27,7 +27,10 @@ headers = {
 }
 listUrl = 'https://www.zhipin.com/wapi/zpjob/rec/geek/list'
 helloUrl = 'https://www.zhipin.com/wapi/zpboss/h5/chat/start?_=1636084604512'
-times = 90 # 设置打招呼次数上限
+times = 150 # 设置打招呼次数上限
+limit = { # 设置打招呼的限制条件
+  'intention': 'Java' # 求职意向
+}
 
 # 获取候选人列表
 # @param page 当前页数。从1开始
@@ -45,10 +48,19 @@ def getCandidateList(page):
     "degree": '203,204', # 学历：本科、硕士
     "salary": 0,
     "intention": 0,
-    "jobId": "3279316d461a6b0f1nF52dS0FFRT", # 职位id：高级后端开发工程师_上海_18-35k
+    # 职位id：
+    # 高级后端开发工程师_上海_18-35k: 3279316d461a6b0f1nF52dS0FFRT
+    # nodejs开发工程师: 3860f840951b69af1nF52NS_EVtX
+    # java后端开发工程师: 2b3949330e4897281nF52dS6GFVU
+    "jobId": "3279316d461a6b0f1nF52dS0FFRT",
     "page": page
   }
   return requests.get(listUrl, headers=headers, params=listData)
+
+# 候选人打招呼限制：根据条件过滤
+def filterGuy(limit, someGuy):
+  print (limit['intention'] + someGuy['geekCard']['expectPositionName'])
+  return limit['intention'] in someGuy['geekCard']['expectPositionName']
 
 # 打招呼
 def sayHelloToSomeGuy(encryptJobId, expectId, securityId, someGuy):
@@ -72,7 +84,7 @@ def main(page):
   for someGuy in lists['zpData']['geekList']:
     global times
     print(times)
-    if times > 0:
+    if times > 0 and filterGuy(limit, someGuy):
       expectId = someGuy['geekCard']['expectId']
       securityId = someGuy['geekCard']['securityId']
       sayHelloToSomeGuy(encryptJobId, expectId, securityId, someGuy)
