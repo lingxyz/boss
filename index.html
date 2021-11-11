@@ -1,0 +1,79 @@
+<!-- html + js可视化 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boss直聘自动打招呼脚本</title>
+</head>
+<body>
+  <form>
+    <div>
+      <label for="">职位：</label>
+      <select name="jobId" id="">
+        <option value="3279316d461a6b0f1nF52dS0FFRT">高级后端开发工程师_上海_18-35k</option>
+        <option value="3860f840951b69af1nF52NS_EVtX">nodejs开发工程师</option>
+        <option value="2b3949330e4897281nF52dS6GFVU">java后端开发工程师</option>
+      </select>
+
+      <label for="">求职意向：</label>
+      <select name="intention" id="">
+        <option value="Java" selected = "selected">Java</option>
+        <option value="Node.js">Node.js</option>
+        <option value="前端">前端</option>
+      </select>
+
+      <label for="">打招呼次数：</label>
+      <input type="text" name="times" value="150">
+    </div>
+    <div>
+      <label for="">专业：</label>
+      <select name="major" id="">
+        <option value="0">不限制</option>
+        <option value="809,807" selected = "selected">计算机、电子信息</option>
+      </select>
+      <label for="">经验：</label>
+      <select name="experience" id="">
+        <option value="0">不限制</option>
+        <option value="105,106" selected = "selected">3-5年，5-10年</option>
+      </select>
+      <label for="">学历：</label>
+      <select name="degree" id="">
+        <option value="0">不限制</option>
+        <option value="203,204" selected = "selected">本科、硕士</option>
+      </select>
+      <label for="">年龄：</label>
+      <select name="age" id="">
+        <option value="0">不限制</option>
+        <option value="16,-1" selected = "selected">16-不限</option>
+      </select>
+    </div>
+    <div>
+      <label for="">Cookie：</label><br>
+      <textarea name="cookie" id="" cols="80" rows="10"></textarea>
+    </div>
+    <div style="margin-bottom: 100px">
+      <button id="excuteButton" type="submit">执行</button>
+    </div>
+    <div>
+      <label for="">执行结果：</label><br>
+      <textarea name="results" id="" cols="80" rows="10"></textarea>
+    </div>
+  </form>
+
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="./boss.js"></script>
+  <script>
+    $('form').submit(function(e){
+      e.preventDefault();
+      var config = {};
+      var t = $('form').serializeArray();
+      $.each(t, function() {
+        config[this.name] = this.value;
+      });
+      boss(JSON.stringify(d));
+    })
+  </script>
+</body>
+</html>
