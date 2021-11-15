@@ -32,12 +32,14 @@ limit = { # 设置打招呼的限制条件
   # 高级后端开发工程师_上海_18-35k: 3279316d461a6b0f1nF52dS0FFRT
   # nodejs开发工程师: 3860f840951b69af1nF52NS_EVtX
   # java后端开发工程师: 2b3949330e4897281nF52dS6GFVU
+  # 高级前端开发工程师: 1ae02c00f080d8231nF52NS8FFVU
+  # 前端开发工程师: b2a4396cd9b5ae401nx40t28EVdR
   "jobId": "2b3949330e4897281nF52dS6GFVU", # 职位id
-  'intention': 'Java', # 求职意向：Java Node.js 前端
-  "major": '809,807', # 专业：计算机、电子信息
-  "experience": '105,106', # 经验：3-5年，5-10年
-  "degree": '203,204', # 学历：本科、硕士
-  "age": "16,-1", # 年龄：16-不限
+  'intention': 'Java', # 求职意向: Java Node.js 前端
+  "major": '809,807', # 专业: 计算机、电子信息
+  "experience": '105,106', # 经验: 3-5年，5-10年
+  "degree": '203,204', # 学历: 本科、硕士
+  "age": "16,-1", # 年龄: 16-不限
 }
 
 # 获取候选人列表
